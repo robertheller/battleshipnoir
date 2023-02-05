@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Copyright 2015, Robert Heller -->
+		
+		<title>BATTLESHIP Noir</title>
+		
+		<link rel = "stylesheet" type = "text/css" href = "css/styles.css">
+		
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			@font-face {
+				font-family: "Pixel";
+				src: url('fonts/Pixel-Noir.eot') format('embedded-opentype'),
+					 url('fonts/Pixel-Noir.woff') format('woff'),
+					 url('fonts/Pixel-Noir.ttf') format('truetype'),
+					 url('fonts/Pixel-Noir.otf') format('opentype');
+			}
+		</style>
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+	
+	<body>
+	
+		<!-- Audio Control -->
+
+		<audio id = "playmusic" loop>
+			<source src = "music/MUS_Noir_loop1.wav" type = "audio/wav" />
+		</audio>
+		
+		<audio id = "missEffect">
+			<source src = "music/explosion6.wav" type = "audio/wav" />
+		</audio>
+		
+		<audio id = "hitEffect">
+			<source src = "music/explosion4.wav" type = "audio/wav" />
+		</audio>
+		
+		<audio id = "winEffect">
+			<source src = "music/noirNick.wav" type = "audio/wav" />
+		</audio>
+		
+		<audio id = "loseEffect">
+			<source src = "music/noirNicktwo.wav" type = "audio/wav" />
+		</audio>
+		
+		<!-- Wrapper -->
+		<div id = "case">
+		
+			<header>
+				<img src = "images/logo.png" >
+			</header>
+
+			<img src = "images/moon.png">
+			
+			<div id = "btn"></div>
+			
+			<div id = "winLose"></div>
+			
+			<div id = "instructions">
+				<p>Detective Bert needs his supplies! <br />
+				Correctly guess the location of each item before you run out of hits!</p>
+			</div>
+			
+			<div id = "win">
+				<p>NICE WORK, PAL!</p>
+			</div>
+			
+			<div id = "gameOver">
+				<p>TRY AGAIN, BUDDY!</p>
+			</div>
+					
+			<!-- Game board -->		
+			<div id="board">
+				<table background = "images/gamebg.png">
+					<tr>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipFive-1"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipOne-1"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipFive-2"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipOne-2"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipFive-3"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipFive-4"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipFive-5"></td>
+						<td class = "cell"></td>
+						<td class = "shipTwo-1"></td>
+						<td class = "shipTwo-2"></td>
+						<td class = "shipTwo-3"></td>
+					</tr>
+					
+					<tr>
+						<td class = "shipThree-1"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "shipThree-2"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "shipThree-3"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "shipFour-1"></td>
+						<td class = "shipFour-2"></td>
+						<td class = "shipFour-3"></td>
+						<td class = "shipFour-4"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "shipThree-4"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+					
+					<tr>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+						<td class = "cell"></td>
+					</tr>
+						
+				</table>
+				
+				<!-- Player Stats -->
+				<div id = "shipsSunk">
+					<p class = "hitCount">HITS LEFT:<br /><span class = "remainingHits"></span></p>
+					<div class = "pipe"></div>
+					<div class = "gun"></div>
+					<div class = "knife"></div>
+					<div class = "glass"></div>
+					<div class = "five"></div>
+				</div>
+				
+			</div>
+			
+			<footer>
+				<p style = "text-align:center;font-family:'Century Gothic','Times New Roman';margin: 20px">
+				Copyright 2015, Robert Heller
+				</p>
+			</footer>
+		</div>
+		<!-- Wrapper end -->
+		
+		<script src = "js/game.js"></script>
+	</body>
+</html>

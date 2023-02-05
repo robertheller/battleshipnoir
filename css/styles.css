@@ -1,0 +1,173 @@
+		/*Robert Heller*/
+		
+		<style>
+			header {
+				background-color: #202020;
+			}
+			
+			body {
+				background-image: url("../images/GameBackground.gif");
+				background-color: #202020;
+				background-repeat: repeat-x;
+			}
+			
+			img {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			#btn:hover {
+				box-shadow: inset 0 0 15px black;
+				border-radius: 7px;
+			}
+			
+			#winLose:hover {
+				box-shadow: inset 0 0 15px black;
+				border-radius: 7px;
+			}
+			
+			td:hover {
+				background-color: white;
+				opacity: 0.2;
+			}
+			
+			td:active {
+				background-color: white;
+				opacity: 0.3;
+			}
+			
+			#case {
+				margin-left: auto;
+				margin-right: auto;
+				width: 960px;
+			}
+			
+			#shipsSunk {
+				background-image: url(../images/shipsunkbg.png);
+				height: 439.5px;
+				width: 220px;
+				float: right;
+				margin-top: 30px;
+				margin-right: 150px;
+				text-align: center;
+			}
+			
+			#btn {
+				background-image: url("../images/playBtnOne.png");
+				height: 48px;
+				width: 96px;
+				display: block;
+				margin-top: 60px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 30px;
+			}
+			
+			#winLose {
+				background-image: url("../images/playBtnOne.png");
+				height: 48px;
+				width: 96px;
+				display: block;
+				margin-top: 60px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 30px;
+			}
+			
+			#win {
+				font-family: "Pixel";
+				color: gray;
+				text-align: center;
+				margin-top: 80px;
+				margin-bottom: 140px;
+			}
+			
+			#gameOver {
+				font-family: "Pixel";
+				color: gray;
+				text-align: center;
+				margin-top: 80px;
+				margin-bottom: 140px;
+			}
+			
+			#instructions {
+				text-align: center;
+				font-family: "Pixel";
+				color: gray;
+				margin-bottom: 150px;
+			}
+			
+			p.hitCount {
+				font-family: "Pixel";
+				color: #202020;
+				margin-top: 15px;
+			}
+			
+			.pipe {
+				background-image: url("../images/shiponepipe.png");
+				height: 40px;
+				width: 80px;
+				margin-top: 10px;
+				margin-left: 70px;
+			}
+			
+			.gun {
+				background-image: url("../images/shiptwogun.png");
+				height: 44px;
+				width: 120px;
+				margin-top: 10px;
+				margin-left: 53px;
+			}
+			
+			.knife {
+				background-image: url("../images/shipthreeknife.png");
+				height: 40px;
+				width: 120px;
+				margin-top: 10px;
+				margin-left: 50px;
+			}
+			
+			.glass {
+				background-image: url("../images/shipfourglass.png");
+				height: 59px;
+				width: 150px;
+				margin-top: 8px;
+				margin-left: 35px;
+			}
+			
+			.five {
+				background-image: url("../images/shipfivebook.png");
+				height: 60px;
+				width: 100px;
+				margin-top: 13px;
+				margin-left: 60px;
+			}
+			
+			.bgImage {
+				background-image: url("../images/hit.png");
+			}
+			
+			.missImage {
+				background-image: url("../images/miss.png");
+			}
+	
+			table, td {
+				border: 1px dashed #949494;
+				border-collapse: collapse;
+			}
+			
+			table {
+				width: 440px;
+				height: 440px;
+				margin-top: 30px;
+				margin-left: 150px;
+				float: left;
+			}
+
+			footer {
+				clear: both;
+				padding: 50px;
+			}
+			
+		</style>
